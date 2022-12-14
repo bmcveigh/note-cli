@@ -22,6 +22,7 @@ References:
 
 import argparse
 import logging
+import subprocess
 import sys
 
 __author__ = "Brian McVeigh"
@@ -30,5 +31,9 @@ __license__ = "MIT"
 
 _logger = logging.getLogger(__name__)
 
+if len(sys.argv) <= 1:
+    print("Missing note title. Cannot continue!")
+    sys.exit()
 
-print("Hello, world!")
+print(f"Creating note: {sys.argv[1]}")
+subprocess.run(['code'])

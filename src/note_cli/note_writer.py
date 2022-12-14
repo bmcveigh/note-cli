@@ -41,7 +41,7 @@ class NoteWriter:
             f.close()
         else:
             # Let us know if the note was found as well.
-            print(f"Note found, opening: {self.note_title}")
+            print(f"Note found, opening: {file_path}")
 
         subprocess.run(['code', file_path])
 

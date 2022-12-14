@@ -17,7 +17,7 @@ _logger = logging.getLogger(__name__)
 
 class NoteWriter:
     def __init__(self):
-        self.note_cli_base_path = "~/.note-cli"
+        self.note_cli_base_path = f"{os.getenv('HOME')}/.note-cli"
         self.note_cli_notes_path = f"{self.note_cli_base_path}/notes"
         self.note_title = sys.argv[2]
 

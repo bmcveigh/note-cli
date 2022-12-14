@@ -14,6 +14,7 @@ __license__ = "MIT"
 
 _logger = logging.getLogger(__name__)
 
+
 class NoteWriter:
     def __init__(self):
         self.note_cli_base_path = "~/.note-cli"

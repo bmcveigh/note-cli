@@ -2,7 +2,7 @@
 Write and open notes via the command line.
 """
 
-import argparse
+import glob
 import logging
 import os
 import subprocess
@@ -37,9 +37,17 @@ class NoteWriter:
             print(f"Creating note: {self.note_title}")
             f = open(file_path, "w")
             f.write(f"# {self.note_title}\n")
-            f.close
+            f.close()
         else:
             # Let us know if the note was found as well.
             print(f"Note found, opening: {self.note_title}")
 
         subprocess.run(['code', file_path])
+
+    def search_for_notes(self):
+        """Find a list of notes matching a pattern."""
+
+        os.chdir(self.note_cli_notes_path)
+        # TODO: make this case insensitive.
+        for file in glob.glob(f"*{self.note_title}*.md"):
+            print(file)

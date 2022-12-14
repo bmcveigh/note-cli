@@ -31,7 +31,7 @@ class NoteWriter:
             print("Missing note title. Cannot continue!")
             sys.exit()
 
-        file_path = f"{self.note_cli_notes_path}/{sys.argv[1]}.md"
+        file_path = f"{self.note_cli_notes_path}/{self.note_title}.md"
         # If the note path does not exist, create it.
         if not os.path.exists(file_path):
             print(f"Creating note: {self.note_title}")
@@ -51,3 +51,15 @@ class NoteWriter:
         # TODO: make this case insensitive.
         for file in glob.glob(f"*{self.note_title}*.md"):
             print(file)
+
+    def search_for_tags(self):
+        """Find a list of notes matching a pattern."""
+
+        os.chdir(self.note_cli_notes_path)
+        # TODO: make this case insensitive.
+        for file in glob.glob("*.md"):
+            f = open(file, "r")
+            content = f.read()
+            if f"#{sys.argv[2]}" in content:
+                print(file)
+            f.close()

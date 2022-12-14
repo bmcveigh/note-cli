@@ -11,5 +11,7 @@ if operation == "open":
     writer.open_note()
 elif operation == "search":
     writer.search_for_notes()
+elif operation == "tag":
+    writer.search_for_tags()
 else:
     print(f"Unrecognized command: {operation}!")

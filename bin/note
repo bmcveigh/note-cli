@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Execute the Python script.
+python3 -m src.note_cli $*

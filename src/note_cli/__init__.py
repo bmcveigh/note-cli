@@ -12,5 +12,7 @@ elif operation == "search":
     writer.search_for_notes()
 elif operation == "tag":
     writer.search_for_tags()
+elif operation == "todo":
+    writer.search_for_todos()
 else:
     print(f"Unrecognized command: {operation}!")

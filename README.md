@@ -25,5 +25,11 @@ bin/note tag "<tag name>"
 ```
 Note: you do not need to use the hashtag in the command to search for a tag.
 
+### Find notes with todo items.
+This will search for notes with Markdown todo items in them.
+``` bash
+bin/note todo
+```
+
 ## Maintainers
 * Brian McVeigh

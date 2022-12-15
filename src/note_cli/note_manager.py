@@ -19,7 +19,11 @@ class NoteManager:
     def __init__(self):
         self.note_cli_base_path = f"{os.getenv('HOME')}/.note-cli"
         self.note_cli_notes_path = f"{self.note_cli_base_path}/notes"
-        self.note_title = sys.argv[2]
+
+        if len(sys.argv) >= 3:
+            self.note_title = sys.argv[2]
+        else:
+            self.note_title = "Untitled"
 
         # Recursively create the notes path if it does not exist.
         if not os.path.exists(self.note_cli_notes_path):
@@ -62,5 +66,16 @@ class NoteManager:
             f = open(file, "r")
             content = f.read()
             if f"#{sys.argv[2]}" in content:
+                print(file)
+            f.close()
+
+    def search_for_todos(self):
+        """Find a list of notes containing todos in Markdown format."""
+
+        os.chdir(self.note_cli_notes_path)
+        for file in glob.glob("*.md"):
+            f = open(file, "r")
+            content = f.read()
+            if f"- [ ]" in content:
                 print(file)
             f.close()

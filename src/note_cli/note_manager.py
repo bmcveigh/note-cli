@@ -32,6 +32,7 @@ class NoteManager:
 
     def open_note(self):
         """Opens a note. Creates the note if it does not exist."""
+
         if len(sys.argv) <= 1:
             print("Missing note title. Cannot continue!")
             sys.exit()

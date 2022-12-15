@@ -1,10 +1,10 @@
 from sys import argv
 
-from src.note_cli.note_writer import NoteWriter
+from src.note_cli.note_manager import NoteManager
 
 operation = argv[1]
 
-writer = NoteWriter()
+writer = NoteManager()
 
 if operation == "open":
     writer.open_note()

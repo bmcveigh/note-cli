@@ -11,6 +11,11 @@ This will also create a new note if it does not already exist.
 ``` bash
 bin/note open "<note title>"
 ```
+### Open the note directory
+This opens all the notes available inside the text editor.
+``` bash
+bin/note open-dir
+```
 
 ### Search for a note by keywords
 ``` bash

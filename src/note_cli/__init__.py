@@ -8,6 +8,8 @@ writer = NoteManager()
 
 if operation == "open":
     writer.open_note()
+elif operation == "open-dir":
+    writer.open_note_dir()
 elif operation == "search":
     writer.search_for_notes()
 elif operation == "tag":

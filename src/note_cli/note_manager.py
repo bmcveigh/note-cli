@@ -17,6 +17,7 @@ _logger = logging.getLogger(__name__)
 
 class NoteManager:
     def __init__(self):
+        self.editor_executable_cmd = "code"
         self.note_cli_base_path = f"{os.getenv('HOME')}/.note-cli"
         self.note_cli_notes_path = f"{self.note_cli_base_path}/notes"
 
@@ -48,7 +49,12 @@ class NoteManager:
             # Let us know if the note was found as well.
             print(f"Note found, opening: {file_path}")
 
-        subprocess.run(['code', file_path])
+        subprocess.run([self.editor_executable_cmd, file_path])
+
+    def open_note_dir(self):
+        """Opens the notes directory containing all note files."""
+
+        subprocess.run([self.editor_executable_cmd, self.note_cli_notes_path])
 
     def search_for_notes(self):
         """Find a list of notes matching a pattern."""
